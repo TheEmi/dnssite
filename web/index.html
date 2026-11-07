@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="app">
-    <header class="top">
+    <header class="top" id="chrome">
       <div class="brand-row">
         <h1 class="brand">DNSite</h1>
         <div class="brand-meta">
@@ -20,6 +20,14 @@
             target="_blank"
             rel="noopener noreferrer"
           >GitHub</a>
+          <button
+            type="button"
+            class="chrome-toggle"
+            id="minimize"
+            aria-controls="chrome"
+            aria-expanded="true"
+            title="Hide menu"
+          >Hide</button>
         </div>
       </div>
       <form class="lookup" id="lookup" autocomplete="off">
@@ -38,6 +46,19 @@
       </form>
       <p class="status" id="status" aria-live="polite"></p>
     </header>
+
+    <button
+      type="button"
+      class="chrome-peek"
+      id="expand"
+      hidden
+      aria-controls="chrome"
+      aria-expanded="false"
+      title="Show menu"
+    >
+      <span class="chrome-peek-label">DNSite</span>
+      <span class="chrome-peek-host" id="peek-host"></span>
+    </button>
 
     <main class="stage" id="stage">
       <div class="empty" id="empty">

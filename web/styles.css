@@ -37,8 +37,13 @@ body {
 
 .app {
   min-height: 100%;
+  height: 100%;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
+}
+
+.app.chrome-min {
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .top {
@@ -46,6 +51,11 @@ body {
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--panel) 82%, transparent);
   backdrop-filter: blur(8px);
+  transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.app.chrome-min .top {
+  display: none;
 }
 
 .brand-row {
@@ -90,6 +100,64 @@ body {
 .github:hover {
   color: var(--signal);
   border-bottom-color: var(--signal);
+}
+
+.chrome-toggle {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.28rem 0.65rem;
+  cursor: pointer;
+}
+
+.chrome-toggle:hover {
+  color: var(--ink);
+  border-color: var(--node);
+}
+
+.chrome-peek {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: min(22rem, calc(100vw - 1.5rem));
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 92%, white);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(18, 38, 31, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.chrome-peek[hidden] {
+  display: none !important;
+}
+
+.chrome-peek:hover {
+  border-color: var(--node);
+}
+
+.chrome-peek-label {
+  font-family: Rockwell, "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.chrome-peek-host {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: ui-monospace, "Cascadia Code", Menlo, monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
 .lookup {

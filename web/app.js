@@ -10,6 +10,7 @@ const DOH_ENDPOINTS = [
   "https://dns.google/resolve",
 ];
 
+const app = document.querySelector(".app");
 const form = document.getElementById("lookup");
 const hostInput = document.getElementById("host");
 const statusEl = document.getElementById("status");
@@ -17,10 +18,30 @@ const frame = document.getElementById("frame");
 const stage = document.getElementById("stage");
 const empty = document.getElementById("empty");
 const submitBtn = document.getElementById("submit");
+const minimizeBtn = document.getElementById("minimize");
+const expandBtn = document.getElementById("expand");
+const peekHost = document.getElementById("peek-host");
 
 function setStatus(message, tone = "") {
   statusEl.textContent = message;
   statusEl.dataset.tone = tone;
+}
+
+function setChromeMinimized(min) {
+  app.classList.toggle("chrome-min", min);
+  minimizeBtn.setAttribute("aria-expanded", String(!min));
+  expandBtn.hidden = !min;
+  expandBtn.setAttribute("aria-expanded", String(min));
+  peekHost.textContent = hostInput.value.trim() || defaultHost();
+}
+
+function minimizeChrome() {
+  setChromeMinimized(true);
+}
+
+function expandChrome() {
+  setChromeMinimized(false);
+  hostInput.focus();
 }
 
 function normalizeHost(value) {
@@ -203,6 +224,7 @@ async function loadHost(rawHost, { push = true } = {}) {
   else syncUrl(host, { replace: true });
 
   submitBtn.disabled = true;
+  expandChrome();
   clearPage();
   setStatus(`Looking up ${host}…`);
 
@@ -216,9 +238,11 @@ async function loadHost(rawHost, { push = true } = {}) {
       `Loaded ${result.entry} · ${result.hops} fragment(s) · ${result.enc}`,
       "ok",
     );
+    minimizeChrome();
   } catch (err) {
     if (err?.name === "AbortError") return;
     clearPage();
+    expandChrome();
     setStatus(err.message || String(err), "error");
   } finally {
     submitBtn.disabled = false;
@@ -253,6 +277,15 @@ function hostFromLocation() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   loadHost(hostInput.value, { push: true });
+});
+
+minimizeBtn.addEventListener("click", () => minimizeChrome());
+expandBtn.addEventListener("click", () => expandChrome());
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && app.classList.contains("chrome-min")) {
+    expandChrome();
+  }
 });
 
 window.addEventListener("popstate", () => {
