@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNSite</title>
+  <style>
+    :root {
+      --ink: #12261f;
+      --muted: #3d5a4c;
+      --paper: #eef4ef;
+      --panel: #f7faf7;
+      --line: #b7c9bc;
+      --signal: #c45c26;
+      --node: #1f6f5b;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Lucida Sans", "Lucida Grande", "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 239, 0.92), rgba(238, 244, 239, 0.97)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 47px,
+          rgba(18, 38, 31, 0.035) 47px,
+          rgba(18, 38, 31, 0.035) 48px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 47px,
+          rgba(18, 38, 31, 0.035) 47px,
+          rgba(18, 38, 31, 0.035) 48px
+        ),
+        radial-gradient(900px 520px at 12% -8%, #d7ebe1 0%, transparent 60%),
+        radial-gradient(700px 420px at 100% 8%, #f3dfc8 0%, transparent 55%),
+        var(--paper);
+      animation: rise 0.9s ease-out both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes draw {
+      from { stroke-dashoffset: 120; opacity: 0.2; }
+      to { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    a { color: var(--node); }
+    a:hover { color: var(--signal); }
+
+    .wrap {
+      width: min(44rem, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 0 0 4.5rem;
+    }
+
+    /* —— Hero: one composition —— */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      align-content: center;
+      gap: 1.25rem;
+      padding: 3rem 0 2rem;
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Rockwell, "Courier New", Courier, monospace;
+      font-size: clamp(3.2rem, 12vw, 5.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      color: var(--ink);
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 28rem;
+      font-size: clamp(1.15rem, 2.6vw, 1.35rem);
+      color: var(--muted);
+    }
+
+    .chain {
+      width: min(100%, 36rem);
+      height: auto;
+      margin-top: 1.5rem;
+      overflow: visible;
+    }
+
+    .chain .link {
+      fill: none;
+      stroke: var(--node);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 120;
+      animation: draw 1.2s ease-out both;
+    }
+
+    .chain .link:nth-child(2) { animation-delay: 0.15s; }
+    .chain .link:nth-child(3) { animation-delay: 0.3s; }
+    .chain .link:nth-child(4) { animation-delay: 0.45s; }
+
+    .chain .node {
+      fill: var(--panel);
+      stroke: var(--node);
+      stroke-width: 2.5;
+      transform-origin: center;
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    .chain .node:nth-of-type(1) { animation-delay: 0s; }
+    .chain .node:nth-of-type(2) { animation-delay: 0.2s; }
+    .chain .node:nth-of-type(3) { animation-delay: 0.4s; }
+    .chain .node:nth-of-type(4) { animation-delay: 0.6s; }
+
+    .chain text {
+      fill: var(--ink);
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+      font-size: 11px;
+    }
+
+    /* —— Sections —— */
+    section {
+      padding: 2.75rem 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 2.75rem;
+    }
+
+    section h2 {
+      margin: 0 0 0.65rem;
+      font-family: Rockwell, "Courier New", Courier, monospace;
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    section > p {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      max-width: 38rem;
+    }
+
+    ol.steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    ol.steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 0.35rem 0 0.35rem 2.4rem;
+      border-left: 2px solid var(--line);
+    }
+
+    ol.steps li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0.55rem;
+      top: 0.35rem;
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--node);
+    }
+
+    ol.steps strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+
+    pre, code {
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+    }
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.05rem;
+      overflow-x: auto;
+      background: #143028;
+      color: #d7ebe1;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    pre .k { color: #f0a56e; }
+    pre .v { color: #9fd6c0; }
+
+    .note {
+      margin: 1rem 0 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    ul.limits {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    ul.limits li { margin: 0.45rem 0; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1 class="brand">DNSite</h1>
+      <p class="lede">
+        A proof of concept: this entire page was fetched from DNS TXT records,
+        decompressed, and stitched back together in your browser-facing client.
+      </p>
+      <svg class="chain" viewBox="0 0 560 110" role="img" aria-label="Linked DNS TXT fragments">
+        <path class="link" d="M70 55 H140" />
+        <path class="link" d="M210 55 H280" />
+        <path class="link" d="M350 55 H420" />
+        <path class="link" d="M490 55 H520" />
+        <circle class="node" cx="55" cy="55" r="18" />
+        <circle class="node" cx="175" cy="55" r="18" />
+        <circle class="node" cx="315" cy="55" r="18" />
+        <circle class="node" cx="455" cy="55" r="18" />
+        <text x="55" y="90" text-anchor="middle">site</text>
+        <text x="175" y="90" text-anchor="middle">p1</text>
+        <text x="315" y="90" text-anchor="middle">p2</text>
+        <text x="455" y="90" text-anchor="middle">end</text>
+      </svg>
+    </header>
+
+    <section>
+      <h2>How it works</h2>
+      <p>
+        DNS is usually used for names and addresses. TXT records can also carry
+        arbitrary text — so with a small client, you can treat the DNS tree as a
+        read-only object store for a webpage.
+      </p>
+      <ol class="steps">
+        <li>
+          <strong>Compress</strong>
+          The HTML is gzip-compressed, then base64-encoded so it survives as TXT text.
+        </li>
+        <li>
+          <strong>Fragment</strong>
+          The payload is split into small chunks (about 200 bytes) that fit typical
+          provider limits for a single TXT string.
+        </li>
+        <li>
+          <strong>Link</strong>
+          Each record points at the next name, like a linked list:
+          <code>site</code> → <code>p1.site</code> → <code>p2.site</code> → … → <code>end</code>.
+        </li>
+        <li>
+          <strong>Resolve</strong>
+          A client walks the chain with ordinary TXT lookups, joins the bodies,
+          base64-decodes, gunzips, and renders the HTML.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>On the wire</h2>
+      <p>
+        Every fragment shares one header shape. The encoding tag tells the client
+        how to rebuild the page; <code>next=</code> is the pointer, or <code>end</code>
+        stops the walk.
+      </p>
+      <pre><span class="k">dnsite2</span>|<span class="v">gzb64</span>|next=p1.site.example.com|&lt;chunk&gt;
+<span class="k">dnsite2</span>|<span class="v">gzb64</span>|next=p2.site.example.com|&lt;chunk&gt;
+<span class="k">dnsite2</span>|<span class="v">gzb64</span>|end|&lt;chunk&gt;</pre>
+      <p class="note">
+        Publish those as TXT records (for example via a BIND zone snippet), then
+        run <code>dnsite get site.example.com --open</code>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why this is a proof of concept</h2>
+      <p>
+        It is intentionally constrained. The point is to show that a resolvable
+        name can carry a whole document — not to replace a CDN.
+      </p>
+      <ul class="limits">
+        <li>TXT size and label counts are small; large sites need many records.</li>
+        <li>Updates mean rewriting the chain; there is no partial patch story.</li>
+        <li>Latency is one lookup per fragment unless you parallelize cleverly.</li>
+        <li>Anyone who can query DNS can read the page — treat it as public.</li>
+        <li>Still useful for demos, easter eggs, tiny status pages, or art projects.</li>
+      </ul>
+    </section>
+
+    <footer>
+      If you can read this sentence, the linked-list walk succeeded.
+      The bytes above did not come from an HTTP origin — they came from DNS.
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+:root {
+  --ink: #12261f;
+  --muted: #3d5a4c;
+  --paper: #eef4ef;
+  --panel: #f7faf7;
+  --line: #b7c9bc;
+  --signal: #c45c26;
+  --node: #1f6f5b;
+  --danger: #8b2e1f;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Lucida Sans", "Lucida Grande", "Segoe UI", sans-serif;
+  line-height: 1.45;
+  background:
+    linear-gradient(180deg, rgba(238, 244, 239, 0.94), rgba(238, 244, 239, 0.98)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 47px,
+      rgba(18, 38, 31, 0.035) 47px,
+      rgba(18, 38, 31, 0.035) 48px
+    ),
+    radial-gradient(900px 520px at 8% -10%, #d7ebe1 0%, transparent 60%),
+    radial-gradient(700px 420px at 100% 0%, #f3dfc8 0%, transparent 55%),
+    var(--paper);
+}
+
+.app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.top {
+  padding: 1rem 1.25rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.brand-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.brand {
+  margin: 0;
+  font-family: Rockwell, "Courier New", Courier, monospace;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.brand-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.65rem 1rem;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.github {
+  font-family: ui-monospace, "Cascadia Code", Menlo, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--node);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--node) 35%, transparent);
+}
+
+.github:hover {
+  color: var(--signal);
+  border-bottom-color: var(--signal);
+}
+
+.lookup {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  max-width: 52rem;
+}
+
+.lookup input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  outline: none;
+}
+
+.lookup input:focus {
+  border-color: var(--node);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--node) 22%, transparent);
+}
+
+.lookup button {
+  border: 0;
+  background: var(--node);
+  color: #f4faf7;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+
+.lookup button:hover { filter: brightness(1.06); }
+.lookup button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.status {
+  margin: 0.65rem 0 0;
+  min-height: 1.25rem;
+  font-family: ui-monospace, "Cascadia Code", Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.status[data-tone="error"] { color: var(--danger); }
+.status[data-tone="ok"] { color: var(--node); }
+
+.stage {
+  position: relative;
+  min-height: 0;
+  background: #0f1f1a;
+}
+
+.stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: #9db5a8;
+  text-align: center;
+}
+
+.empty strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: Rockwell, "Courier New", Courier, monospace;
+  font-size: 1.25rem;
+  color: #d7ebe1;
+}
+
+.empty[hidden],
+.stage.is-loaded .empty {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .lookup {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-meta {
+    justify-content: flex-start;
+  }
+}

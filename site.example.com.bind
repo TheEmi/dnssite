@@ -1,0 +1,34 @@
+; DNSite TXT fragments — $INCLUDE or paste into your zone
+; Entry point: site.example.com
+; Fragments: 27
+; Encoding: gzb64
+; HTML 9259B → wire 4136B (gzip 3101B)
+$TTL 300
+
+site.example.com.  IN  TXT  "dnsite2|gzb64|next=p1.site.example.com|H4sIAAAAAAACA81a/Y7bxhH/308x5cHFXSBSJCXdh046NLGT2oDtBLGDNn+uyKG40XKX3V1Jp3MK5K8+QJFn6IP5SYpZfoj6ss9JChQGLGp3ZjgzO/ObmdVN/vT822fvfvzua8htIe6eTOgDBJPzqYfSowVk6d0"
+p1.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p2.site.example.com|TgEmBlkGSM23QTr2lzfxrb7shWYFTb8VxXSptPUiUtCjt1Fvz1ObTFFc8Qd996QGX3HImfJMwgdOoEmO5FXj3/M1bbnHSr77RurGb6glgrJWy8N49A/g+l4sxnEVxfBllt+1qsbSYjuFskI7YMNmul6xEPYYzxG"
+p2.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p3.site.example.com|yIWXddohjDWXaVsexquy64xDGcza6Sm1lHjOFzyYg+GY6S+HK7IVVK9FF2mY1mzXKihNK+SXIscAyCz3Nbbf3zifv4At7DTN37hj9wOR/DTOkUtT9T97cNyUylm9boguk5l2MId14whhXT584hF81GpqT1M1Zws"
+p3.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p4.site.example.com|RmD92qZ8JTBWyaN12u//lUzmSItvMW5QvjhpdcDw6TxDWre+og84edIyo8hCkajZmPGksVcq6VMx/VKRcy0P9cs5SjteXQdpjjvgZ7P2Hk8uO5BPBz2IB7c9CAMbuKLk1tXFxe9VqzGEpnlcu7vv6AlAbhxr+os"
+p4.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p5.site.example.com|WM2kKZlGaSE8tTG8Ku+7e06d6LoHpNEgIl3Cweji8XTX5X1L9rkm/H9bwFLK21bvmzAs72EU0//MQhQ/Bf/6aQ/O0iucYQTh096Onpfh049Iu3LShq20MHwKTlo2SLPk+kDaaNSVVmWAS/I2B5jkBbNcyTFobpC"
+p5.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p6.site.example.com|CygAyg75aWpgpm+8k418WuMk0K9BU5E3SZVoV8B5UyRJuN5R8lR6Z0sW4ehTM4o/nUVzeX1Di1kekulzRKa6wZTnUI9Vsva+HsVot0E+ZyVWWGaSkjMPbjn5BvKfEEZYuQ3RagXIpOp6gI3Dn8r5ri8Px86hj+e"
+p6.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p7.site.example.com|gESRBe7xvL4P0uiBGOtkRsnKsV6n2aCoQvWowM1pqVrZauzIyh4PJ8ONRY9CBhIjl3ivsQByONxUUbJC2kAlta1ayWLE0dIocQwtCx7MRK/wv48MuvH375FV6gVmNQEiFRRakMp4BrNr/oV/rlqNUWxLncwmkYr"
+p7.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p8.site.example.com|vLb4xvpdiflphRsM4a55mkb3oLPpV+X2jEkKC3qZnPOSgLreKt5x6iBxgJCiPetCmZUEU5Xm52i8r1KFmsUogfeM7XUHDW8wbXXg/pbDwollSlZgjv8hj/gGBLBivJ8EMTugKJ4te7BKLiko9mhXtf+uApbLQRa"
+p8.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p9.site.example.com|i9onyc4aPwzC4dbKnXJFJeYTtbKxXWCKp00v2L1fB1Z83fHpgUlREI2cTXFwSUZFwWDUtWpHC9es7OmR5IzLY8FMAdyDwY6PGju7sVvp7lvlIqAbAJRLmVDrMay44TOBx94cCC4XW9DhQoxBKtkeYgUmu+m6s9X"
+p9.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p10.site.example.com|6KRjtbdDRJBSYrmnY2yR0YlpTlBOeHWK4A8MoiD+G4V0bxtLmfpJzkZ7HF/B+K8pP0SVTGEQj00DNCc7BCc7BpxiHJxiH1St3WMmJex5v6plEcfF7PN+CsK80dyG9ixMd/1ZYHwfXtYO5dD7mMqOO/XisuK6XjF"
+p10.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p11.site.example.com|aZbzcllYGjZh9464Dx1BHFn2Y9dUbDT7OeOqXLg0OyeG+PntHJrnvJ/RYBCSSZSajlgWeqbrq/gddKKq8Hr1EK9XG8jKLy/kQFeosJKW/2io6plludW/SPg6tRVQDaLKvnjgoyynswSvC0to+S9uIYttRydrRqX"
+p11.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p12.site.example.com|prHh1BK/4LL0T54/pH1hKYTB75Dgt64i5THqka8p8pBsdmz6g7Ko2ZFQdSx6iTC71SRwfW+75QIjMXSnC5C265kW+yM9d2MvAvSiVpSlvsaXbdHcj/aS7h2IQxuTuokeKtWI5vLRGPheo+u/KYHGoNGwSxf4aH6"
+p12.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p13.site.example.com|VU10AVE9xcGw48E6HAVmdgzx6Xg8VHI8nmGmNHaUbdqjSutzouxBigkvmPAFMlLJf0CtLg4tYDOjxNLiNogy11SMulHskqE25BFA8IhkD7uZdboROtI3H3ULFQc5b13SBsBMqGSxl9kzZa0qHPCeCumD1qnU2IN"
+p13.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p14.site.example.com|kp4b9kTi4fcsjMoMSEaIgPNb2+Pe7jVLn/gLOouEgjK/3DK4n2eNH1G0D9+5IhqMD1YPFdoo5y0I2usSmOrntVWf7Jksvk3BbgaSyh7ZHexi+o9zN6DGAVMtfikDwgttPI0+dknWP+/nyCUW2woNhhQKtoZlSlq"
+p14.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p15.site.example.com|a9I8VmcDjHNB3uzozz6Eq2667HWQMw6dcXkpN+dTU6ofs5d1OZ8hVVIWOmHo2jXnVp6W5QUTc7NAjWO7QXNetu8PLa+888amnKhoTmk5YV4EsotVIZqIwwLsHSjsHm3ABKyzVCyeYIa2YgQ5vkmFbXB8/fvIV3f"
+p15.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p16.site.example.com|38HGhOlU7O9P0mRxleNxmDaA5oCjeUVI6UJWDVHm6MGLmGjlhpmWq0Naj9z9RQSQZc4QaN1v2wNMKt5Y4LrpDyge+Kv1P3Uo9o5ugwhikIPtBI49Xgx94BpznzBZiim3isuF5i2imeazanmmI4rJiWzeesmLhce"
+p16.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p17.site.example.com|pFPv9VUIoxG8iIahB/1PUsdRRR5fP4p8MKrIh/GjyIc3FflonzzhOhHYMBCIe5DcT73RyINkU33qqRddP44tuvptfIPot/ENP6Gn65prczZT7yb0XCPtM5nkSk+9gqepQO/OVNf+eG+PMDujPsZdRid5nWEf5Y1"
+p17.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p18.site.example.com|P8g4/pTXKdJd50jereZ34/Srz7ypom9Q95Db347sXag3cwlrphZn083ib81tlKO65gaVZMiE2sDSUyUq7X1yMy1OWpi5tTdDNbEiYBCaMgoRpvWnlMT3jVjO9qQYamheMgjW3OTAwBROiTuUepbmTYjUyCzZHp4"
+p18.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p19.site.example.com|zViMAMsM7FNkt9JcUG1OwnTCwYSx0YaclgjTNComPAoEQTT65N6Sa04Hede+pJ1cDcPasRikDYLXRo3uUIL969fkXOmj/w0u/Cmc1RwowZvBz6KKlTSclqbsEs9YqvyJPGeY+cEmz16HcVOaHVNzUindKqZBuhW"
+p19.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p20.site.example.com|EqKmVJwGqitalydL+XCwDmb0aQdhyHMNhbNBdicWci4BbspecJER2ap1YpTSalrauVnw+VcoLPBWM3l/DOtIJg9ZsHXLMnrmIJScWkN1MEgKX4oDHsg+AKBURNEUE0zybj7CnJ4neHuET7869/1ahkFJzbig40P"
+p20.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p21.site.example.com|v/ynQ+Byzz19pqXfo1FihceM/bKOfVgzsTDOymr4d/mhdMolZQ45WSi1WJamBz8pLivSmUo5mu4PLHXIUW1N0fRgvpQPnJgobzXKFHXFSpF73IxJX4kGUFoIOYko30onbs01ngKUr1eoN20ZBbpzQ+Pur+tOxeS"
+p21.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p22.site.example.com|sxMCFrssVqu6WzcGiELVPnJNaibla088MGmdLLlJHQSl/Wx8Uxcm0OUdeSXCRRCO90gfH2co1VpUVOR3HMQQpNd5NTMlkAyQL7y6VFDfxpE/rdz/vbK+8u/nD7HLYbDrV6hAM8J4VpcAgUcXPfxb21uXmn+f29s"
+p22.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p23.site.example.com|nvf0X8v3wFynRX2qRPjjloIGmK6IDsd8uZ4CYHmyuDDf411eOcUKVWF1acAYOvXr55Dg8UKEbyskR7UQHrtg4sZX2YlfYwRwv7doPvqxLlXuq2h/qYIP9bvqk6XW6AHXTBp+L+pSV67m4DuJKumiZKGqsZl5hWA"
+p23.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p24.site.example.com|e/i0gWpAuPimnCYgXaYwWYCW3mEfK48uvpKlS5XAiFVydIlFlVWqWyVGaVgCSHks+dvjsXxUmw7RsL0vVLoQJ0/oIMN1xZXtxkGmMaqktyCYHqOzt0GJGIKBZOb5jyDQ2T8oUwZ0RbIJGhca25dpjeYd0uPGskZ"
+p24.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p25.site.example.com|UkHJNP3NBpTMJrkr8JsjMl8xizLZEA/FSYWRUKLe4s1SCjTG9RYl00wIFGRZInCFWhwT+qXckLB1rpy7/7Ek/KJOJHGKsy3iOJ9X3Qq3FNElhXhyROZby4WgZipbCldAUyyU6dG9Nw2gOJ+bHlguN2Ass0vjxBs"
+p25.site.example.com.  IN  TXT  "dnsite2|gzb64|next=p26.site.example.com|HV0xbijlqdHbdOukvTyF1Ndc2hC+ztrWq1afWgG7lJV2QkDVVJfWpkjrwA7NMEsQU0yZ8KFpdrwBsplYIKU9duCWqwGrUYxJevHv3HVT3/pVvctxAwhqK52/eBrXCWw0n/ZSvaL6tBttJv/rToP8CKiGs0CskAA"
+p26.site.example.com.  IN  TXT  "dnsite2|gzb64|end|A="

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNSite viewer</title>
+  <meta name="description" content="Resolve and render websites stored in DNS TXT records.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand-row">
+        <h1 class="brand">DNSite</h1>
+        <div class="brand-meta">
+          <p class="hint">Resolve a page published as linked DNS TXT fragments</p>
+          <a
+            class="github"
+            href="https://github.com/TheEmi/dnssite"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub</a>
+        </div>
+      </div>
+      <form class="lookup" id="lookup" autocomplete="off">
+        <input
+          id="host"
+          name="host"
+          type="text"
+          spellcheck="false"
+          autocapitalize="off"
+          autocorrect="off"
+          placeholder="this host’s DNS name"
+          aria-label="DNSite entry hostname"
+          required
+        >
+        <button id="submit" type="submit">Open</button>
+      </form>
+      <p class="status" id="status" aria-live="polite"></p>
+    </header>
+
+    <main class="stage" id="stage">
+      <div class="empty" id="empty">
+        <div>
+          <strong>Loading from DNS…</strong>
+          Defaults to this site’s hostname; override with
+          <code>?host=other.name</code>
+        </div>
+      </div>
+      <iframe
+        id="frame"
+        title="DNSite page"
+        sandbox=""
+      ></iframe>
+    </main>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

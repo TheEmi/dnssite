@@ -1,0 +1,20 @@
+{
+  "name": "dnsite",
+  "version": "1.0.0",
+  "description": "Host a website in DNS TXT records (linked-list fragments)",
+  "type": "module",
+  "bin": {
+    "dnsite": "./dnsite.js"
+  },
+  "scripts": {
+    "fragment": "node dnsite.js fragment",
+    "get": "node dnsite.js get",
+    "web": "node web/serve.js",
+    "dev": "node web/serve.js"
+  },
+
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

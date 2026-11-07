@@ -1,0 +1,5 @@
+{
+  "framework": null,
+  "installCommand": "echo skip",
+  "buildCommand": "rm -rf public && mkdir public && cp -r web/. public/"
+}
